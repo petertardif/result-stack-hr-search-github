@@ -19,7 +19,17 @@ export default function UserItem({ user }) {
 						{user.name}
 					</a>
 				</td>
-				<td className='px-4 py-2 '>{user.login}</td>
+				<td className='px-4 py-2 '>
+					{' '}
+					<a
+						href={user.html_url}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='text-primary-500 hover:text-primary no-underline'
+					>
+						{user.login}
+					</a>
+				</td>
 				<td className='px-4 py-'>
 					<div>{user.email ? user.email : 'N/A'}</div>
 

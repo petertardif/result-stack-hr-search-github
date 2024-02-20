@@ -13,10 +13,10 @@ const parseLinkHeader = (linkHeader) => {
 		const regex = /<([^>]+)>/;
 		const urlMatches = url.match(regex);
 
-		// if there is a match, set into  paginationUrls and then return
+		// if there is a match, set into paginationUrls and then return paginationUrls to set in state.
 		if (urlMatches) {
-			const [, urlValue] = urlMatches; // destructure urlMatches to get url value, ignore first argument
-			const relValue = rel.split('=')[1].replace(/"/g, '');
+			const urlValue = urlMatches?.at(1); // hardcoded at(1), but urlMatches will always return two values and we only care about the second.
+			const relValue = rel.split('=')[1].replace(/"/g, ''); // hardcoded to value 1 as it will again always return two values
 			paginationUrls[relValue] = urlValue;
 		}
 	});
