@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import UserList from './components/UserList';
+import Header from './components/Header';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [userList, setUserList] = useState([]);
+	const [paginationUrls, setPaginationUrls] = useState({});
+	const [searched, setSearched] = useState(false);
+
+	return (
+		<div className='App'>
+			<Header />
+			<SearchBar
+				setUserList={setUserList}
+				setPaginationUrls={setPaginationUrls}
+				searched={searched}
+				setSearched={setSearched}
+			/>
+			<UserList
+				userList={userList}
+				setUserList={setUserList}
+				paginationUrls={paginationUrls}
+				setPaginationUrls={setPaginationUrls}
+				searched={searched}
+			/>
+		</div>
+	);
 }
 
 export default App;
