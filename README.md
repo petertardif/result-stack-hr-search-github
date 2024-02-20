@@ -1,6 +1,6 @@
 # Getting Started with Result Stack's HR Github Search
 
-Pull down the repo, cd into the correct directory, and run npm i or you can alternatively visit this [live link]().
+Pull down the repo, cd into the correct directory, and run npm i or you can alternatively visit this [live link](https://resultstackhr.netlify.app).
 
 ## `npm start`
 
