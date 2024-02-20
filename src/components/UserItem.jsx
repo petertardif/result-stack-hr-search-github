@@ -19,18 +19,18 @@ export default function UserItem({ user }) {
 						{user.name}
 					</a>
 				</td>
-				<td className=' px-4 py-2 '>{user.login}</td>
-				<td className=' px-4 py-2 '>
+				<td className='px-4 py-2 '>{user.login}</td>
+				<td className='px-4 py-'>
 					<div>{user.email ? user.email : 'N/A'}</div>
 
 					<div>
 						<TweetButton twitter_username={user.twitter_username} />
 					</div>
 				</td>
-				<td className='px-4 py-2 '>{user.location}</td>
-				<td className='px-4 py-2 '>{user.public_repos}</td>
-				<td className='px-4 py-2 '>{user.created_at.slice(0, 10)}</td>
-				<td className='px-4 py-2 '>{user.updated_at.slice(0, 10)}</td>
+				<td className='px-4 py-2'>{user.location}</td>
+				<td className='px-4 py-2'>{user.public_repos}</td>
+				<td className='px-4 py-2'>{user.created_at.slice(0, 10)}</td>
+				<td className='px-4 py-2'>{user.updated_at.slice(0, 10)}</td>
 			</tr>
 		</>
 	);

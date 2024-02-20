@@ -12,6 +12,7 @@ const SearchBar = ({
 	const [isLoading, setIsLoading] = useState(false);
 
 	// do not add useEffect here as it will cause rate limiting with Github API, force user to click search button or press enter from input to search
+	// with appropriate backend integration, useEffect should be used to fetch users on every keystroke beyond 3 characters
 	const fetchUsersList = async () => {
 		setIsLoading(true);
 		setUserList([]);

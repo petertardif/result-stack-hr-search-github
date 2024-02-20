@@ -9,13 +9,13 @@ const parseLinkHeader = (linkHeader) => {
 	links.forEach((link) => {
 		// use array destructing to split each link
 		const [url, rel] = link.split('; ');
-		// regex to get match url/html values
+		// regex to find url/html values
 		const regex = /<([^>]+)>/;
 		const urlMatches = url.match(regex);
 
 		// if there is a match, set into  paginationUrls and then return
 		if (urlMatches) {
-			const [, urlValue] = urlMatches;
+			const [, urlValue] = urlMatches; // destructure urlMatches to get url value, ignore first argument
 			const relValue = rel.split('=')[1].replace(/"/g, '');
 			paginationUrls[relValue] = urlValue;
 		}
@@ -32,7 +32,7 @@ const fetchUserAndPaginationData = async (
 	const response = await fetch(url);
 	const data = await response.json();
 
-	// need to fetch additional user data for each user
+	// fetch additional user data not in first API call for each user
 	const userDataPromises = data.items.map(async (item) => {
 		const userResponse = await fetch(
 			`https://api.github.com/users/${item.login}`
@@ -40,7 +40,7 @@ const fetchUserAndPaginationData = async (
 		return userResponse.json();
 	});
 
-	// wait for user data proimises to resolve
+	// wait for user data promises to resolve
 	const userData = await Promise.all(userDataPromises);
 
 	// set user data into state

@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import UserList from './components/UserList';
@@ -10,7 +9,7 @@ function App() {
 	const [searched, setSearched] = useState(false);
 
 	return (
-		<div className='App'>
+		<div className='text-center'>
 			<Header />
 			<SearchBar
 				setUserList={setUserList}
