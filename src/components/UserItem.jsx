@@ -29,8 +29,8 @@ export default function UserItem({ user }) {
 				</td>
 				<td className='px-4 py-2 '>{user.location}</td>
 				<td className='px-4 py-2 '>{user.public_repos}</td>
-				<td className='px-4 py-2 '>{user.created_at}</td>
-				<td className='px-4 py-2 '>{user.updated_at}</td>
+				<td className='px-4 py-2 '>{user.created_at.slice(0, 10)}</td>
+				<td className='px-4 py-2 '>{user.updated_at.slice(0, 10)}</td>
 			</tr>
 		</>
 	);
